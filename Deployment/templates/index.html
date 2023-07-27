@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  
+</head>
+
+<body style="background: rgb(240, 237, 237);">
+ <div class="login">
+	<h1>Sentiment Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+
+    <form action = "/" method="POST">
+        <input type="text" name="pred" placeholder="Enter the text" required="required" id="pred" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Sentiment</button>
+    </form>
+
+
+    <center class="mt-3 mb-5">
+      <a type="button" href="https://colab.research.google.com/drive/1eRdSkdz3gh6zJsgrzJS-XSRyei06OT9D#scrollTo=7P7WnbGx4PoR" target="_blank" class="btn btn-outline-info mt-5 btn-lg">Source Code</a>
+    </center>
+
+   <br>
+   <br>
+   {% if predict != "-" %} 
+   {% if predict == "1" %} Positive
+   {% elif predict == "0" %} Neutral
+   {% else %} Negative
+   {% endif %}
+   {% endif %}
+
+
+ </div>
+</body>
+</html>
